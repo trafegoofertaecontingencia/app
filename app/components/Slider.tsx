@@ -1,26 +1,34 @@
-"use client"
+"use client";
 
-import { motion } from "motion/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Slide from "./Slide";
+import "swiper/css";
 
+import { Autoplay } from "swiper/modules";
 
 export default function Slider() {
-
-  const banners = {
-    paths: ["file.svg", "globe.svg"]
-  }
-
-  const arrayLength = banners.paths.length;
+  const banners = ["/file.svg", "/globe.svg"];
 
   return (
-    <motion.div 
-    initial={{right: "0"}}
-    animate={{right: "100vw"}}
-    transition={{duration: 0.7, ease: "easeInOut"}}
-    className={`w-[${arrayLength}00vw] h-[400px] border flex relative`}>
-      {banners.paths.map((banner, index) => (
-        <Slide key={index} path={banner} />
+    <Swiper
+      modules={[Autoplay]}
+      autoplay={{
+        delay: 2000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+      spaceBetween={50}
+      slidesPerView={1}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
+      {banners.map((path, index) => (
+        <SwiperSlide key={index}>
+          <div className="h-[400px] border">
+            <Slide path={path} />
+          </div>
+        </SwiperSlide>
       ))}
-    </motion.div>
-  )
+    </Swiper>
+  );
 }
