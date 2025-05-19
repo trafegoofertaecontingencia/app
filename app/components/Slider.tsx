@@ -12,10 +12,10 @@ export default function Slider() {
   return (
     <Swiper
       modules={[Autoplay]}
-      autoplay={{
-        delay: 2000,
-        disableOnInteraction: false,
-      }}
+      // autoplay={{
+      //   delay: 2000,
+      //   disableOnInteraction: false,
+      // }}
       loop={true}
       spaceBetween={50}
       slidesPerView={1}
