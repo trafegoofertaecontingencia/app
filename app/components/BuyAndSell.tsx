@@ -30,7 +30,7 @@ export default function BuyAndSell() {
     ]
 
     return (
-        <div className="bg-white w-90 rounded-2xl">
+        <div className="bg-white w-90 rounded-2xl m-[auto]">
             <div className="flex justify-center p-4 gap-3">
                 {options.map((item, index) => (
                     <div onClick={() => handleBuyOrSell(index, item.opt) } key={index} className={`flex flex-col items-center ${index == buyOrSell && "font-bold"}`}>
@@ -41,7 +41,7 @@ export default function BuyAndSell() {
             </div>
             <div className="flex gap-3">
                 {moreOptions.map((item, index) => (
-                    <div onClick={() => setUsedOrNew(index)}  key={index} className={`bg-gray-200 ${usedOrNew == index && "bg-red-200"} pt-1 pb-1 p-4 rounded-xl ml-2 text-red-500 font-bold`}>
+                    <div onClick={() => setUsedOrNew(index)}  key={index} className={`bg-gray-200 ${usedOrNew == index && "bg-red-200"} p-2 rounded-xl ml-2 text-red-500 font-bold`}>
                         <p>{item.opt}</p>
                     </div>
                 ))}
