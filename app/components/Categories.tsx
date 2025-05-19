@@ -11,8 +11,8 @@ export default function Categories() {
             <p className="font-bold">Categorias</p>
             <div className="overflow-auto">
                 <div className="w-[auto] h-[250px] flex gap-3">
-                    {categories.map((cat) => (
-                        <img className="rounded-xl h-[250px] w-[250px]" src={cat.path} alt="" />
+                    {categories.map((cat, index) => (
+                        <img key={index} className="rounded-xl h-[250px] w-[250px]" src={cat.path} alt="" />
                     ))}
                 </div>
             </div>
