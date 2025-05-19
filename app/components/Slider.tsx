@@ -24,7 +24,7 @@ export default function Slider() {
     >
       {banners.map((path, index) => (
         <SwiperSlide key={index}>
-          <div className="h-[400px]">
+          <div>
             <Slide path={`${path}`} />
           </div>
         </SwiperSlide>
