@@ -35,7 +35,7 @@ export default function RootLayout({
         <Header />
         <Navbar />
         <Slider />
-        <div className="min-h-[90vh] bg-gray-200">{children}</div>
+        <div className="min-h-[90vh] bg-gray-200 pt-10">{children}</div>
         <Footer />
       </body>
     </html>

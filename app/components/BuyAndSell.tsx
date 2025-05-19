@@ -30,7 +30,7 @@ export default function BuyAndSell() {
     ]
 
     return (
-        <div className="bg-white w-90 rounded-2xl mt-10">
+        <div className="bg-white w-90 rounded-2xl m-auto">
             <div className="flex justify-center p-4 gap-3 ">
                 {options.map((item, index) => (
                     <div onClick={() => handleBuyOrSell(index, item.opt) } key={index} className={`flex flex-col items-center ${index == buyOrSell && "font-bold"}`}>
