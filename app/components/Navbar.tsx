@@ -10,8 +10,6 @@ import Link from "next/link";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(isOpen);
-
   return (
     <motion.nav
       initial={{ height: "auto" }}
@@ -19,6 +17,8 @@ export default function Navbar() {
       transition={{ duration: 0.2, delay: !isOpen ? 0.3 : 0 }}
       className={`bg-[#333] flex items-start justify-center relative overflow-hidden`}
     >
+
+
       <IoMdMenu
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden text-white text-3xl"

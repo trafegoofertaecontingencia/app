@@ -7,15 +7,15 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 export default function Slider() {
-  const banners = ["/file.svg", "/globe.svg"];
+  const banners = ["/banners/banner1.jpg", "/banners/banner2.jpg"];
 
   return (
     <Swiper
       modules={[Autoplay]}
-      // autoplay={{
-      //   delay: 2000,
-      //   disableOnInteraction: false,
-      // }}
+      autoplay={{
+        delay: 2000,
+        disableOnInteraction: false,
+      }}
       loop={true}
       spaceBetween={50}
       slidesPerView={1}
@@ -24,8 +24,8 @@ export default function Slider() {
     >
       {banners.map((path, index) => (
         <SwiperSlide key={index}>
-          <div className="h-[400px] border">
-            <Slide path={path} />
+          <div className="h-[400px]">
+            <Slide path={`${path}`} />
           </div>
         </SwiperSlide>
       ))}
