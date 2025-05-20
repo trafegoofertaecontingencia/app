@@ -2,7 +2,15 @@ import { CiCalendarDate } from "react-icons/ci";
 import { TfiDashboard } from "react-icons/tfi";
 import { CiLocationOn } from "react-icons/ci";
 
-export default function Hatches() {
+type CategoryPageProps = {
+  params: {
+    category: string;
+  };
+};
+
+export default async function Category({ params }: CategoryPageProps) {
+  console.log(await params);
+
   const cars = [
     {
       brand: "Volkswagen",
@@ -12,7 +20,7 @@ export default function Hatches() {
       desc: "1.0 duas portas",
       year: "2011/2012",
       km: "103.689",
-      img: "https://blog.olhonocarro.com.br/wp-content/uploads/2023/07/image-51.jpeg"
+      img: "https://blog.olhonocarro.com.br/wp-content/uploads/2023/07/image-51.jpeg",
     },
     {
       brand: "Chevrolet",
@@ -22,7 +30,7 @@ export default function Hatches() {
       desc: "1.4",
       year: "2014/2015",
       km: "56.621",
-      img: "https://sicrediuniaomsto.coop.br/sites/default/files/classificados/IMG-20220919-WA0167.jpg"
+      img: "https://sicrediuniaomsto.coop.br/sites/default/files/classificados/IMG-20220919-WA0167.jpg",
     },
     {
       brand: "Chevrolet",
@@ -32,7 +40,7 @@ export default function Hatches() {
       desc: "1.0 4 portas",
       year: "2010/2010",
       km: "201.639",
-      img: "https://image1.mobiauto.com.br/images/api/images/v1.0/241452410/transform/fl_progressive,f_webp,q_70,w_750"
+      img: "https://image1.mobiauto.com.br/images/api/images/v1.0/241452410/transform/fl_progressive,f_webp,q_70,w_750",
     },
   ];
 
@@ -41,11 +49,7 @@ export default function Hatches() {
       {cars.map((car, index) => (
         <div key={index} className="flex flex-col">
           <div className="flex gap-2">
-            <img
-              className="w-[200px] rounded-xl"
-              src={car.img}
-              alt=""
-            />
+            <img className="w-[200px] rounded-xl" src={car.img} alt="" />
 
             <div className="flex flex-col">
               <p className="font-bold uppercase">{car.model}</p>
@@ -71,8 +75,12 @@ export default function Hatches() {
           </div>
 
           <div className="flex justify-center gap-2 w-[100%] mt-2">
-            <button className="bg-gray-200 w-[50%] p-2 rounded-xl">´Detalhes</button>
-            <button className="bg-[#333] w-[50%] rounded-xl text-white">Ver Parcelas</button>
+            <button className="bg-gray-200 w-[50%] p-2 rounded-xl">
+              ´Detalhes
+            </button>
+            <button className="bg-[#333] w-[50%] rounded-xl text-white">
+              Ver Parcelas
+            </button>
           </div>
         </div>
       ))}
