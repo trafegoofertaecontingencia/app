@@ -24,7 +24,7 @@ export default function Slider() {
     >
       {banners.map((path, index) => (
         <SwiperSlide key={index}>
-          <div>
+          <div className="flex justify-center">
             <Slide path={`${path}`} />
           </div>
         </SwiperSlide>

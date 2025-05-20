@@ -8,7 +8,7 @@ export default function Categories() {
     ]
     return(
         <div className="m-5">
-            <p className="font-bold">Categorias</p>
+            <p className="mb-2 font-bold">Categorias</p>
             <div className="overflow-auto">
                 <div className="w-[auto] h-[250px] flex gap-3">
                     {categories.map((cat, index) => (
