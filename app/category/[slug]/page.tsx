@@ -2,16 +2,8 @@ import { CiCalendarDate } from "react-icons/ci";
 import { TfiDashboard } from "react-icons/tfi";
 import { CiLocationOn } from "react-icons/ci";
 
-type CategoryPageProps = {
-  params: {
-    category: string;
-  };
-};
 
-export default async function Category({ params }: CategoryPageProps) {
-
-  const { category } =  params;
-
+export default async function Category() {
 
   const cars = [
     {
