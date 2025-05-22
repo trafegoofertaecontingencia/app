@@ -9,7 +9,9 @@ type CategoryPageProps = {
 };
 
 export default async function Category({ params }: CategoryPageProps) {
-  console.log(await params);
+
+  const { category } =  params;
+
 
   const cars = [
     {

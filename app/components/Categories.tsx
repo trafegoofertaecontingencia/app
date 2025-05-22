@@ -1,10 +1,10 @@
 export default function Categories() {
 
     const categories = [
-        {cat: "Carros", path: "/categories/category.jpg"},
-        {cat: "Motos", path: "/categories/category2.jpg"},
-        {cat: "Acessórios", path: "/categories/category3.jpg"},
-        {cat: "Pneus", path: "/categories/category4.jpg"},
+        {cat: "Carros elétricos", path: "/categories/eletric.jpg"},
+        {cat: "Hatches", path: "/categories/hatches.jpg"},
+        {cat: "Picapes", path: "/categories/picape.jpg"},
+        {cat: "Sedans", path: "/categories/sedans.jpg"},
     ]
     return(
         <div className="m-5">
@@ -12,7 +12,10 @@ export default function Categories() {
             <div className="overflow-auto">
                 <div className="w-[auto] h-[250px] flex gap-3">
                     {categories.map((cat, index) => (
-                        <img key={index} className="rounded-xl h-[250px] w-[250px]" src={cat.path} alt="" />
+                        <div className="h-[250px] w-[350px] relative">
+                            <p className="absolute text-white font-bold bottom-4 left-4 text-2xl">{cat.cat}</p>
+                            <img key={index} className="rounded-xl min-w-[250px]" src={cat.path} alt="" />
+                        </div>
                     ))}
                 </div>
             </div>
