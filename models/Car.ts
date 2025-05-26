@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, models } from 'mongoose';
+import mongoose, { Schema, model, models, Types } from 'mongoose';
 
 const CarSchema = new Schema({
   brand: { type: String, required: true },
@@ -13,6 +13,11 @@ const CarSchema = new Schema({
     enum: ['gasoline', 'ethanol', 'flex', 'diesel', 'electric'], 
     required: true 
   },
+  condition: { 
+    type: String, 
+    enum: ['new', 'used'], 
+    required: true 
+  },
   price: { type: Number, required: true },
   description: { type: String },
   images: [{ type: String }], // URLs
@@ -20,6 +25,11 @@ const CarSchema = new Schema({
     state: { type: String, required: true },
     city: { type: String, required: true }
   },
+  seller: { 
+    type: Schema.Types.ObjectId, 
+    ref: 'User', 
+    required: true 
+  }
 }, { timestamps: true });
 
 export const Car = models.Car || model('Car', CarSchema);
