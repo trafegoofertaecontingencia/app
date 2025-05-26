@@ -15,7 +15,7 @@ interface Car {
   images: string[];
 }
 
-export default function OfertasPage() {
+export default function OffersClient() {
   const searchParams = useSearchParams();
   const [cars, setCars] = useState<Car[]>([]);
 
@@ -48,8 +48,7 @@ export default function OfertasPage() {
                 {car.brand} {car.model}
               </h2>
               <p>
-                {car.condition.toUpperCase()} - {car.yearFabrication}/
-                {car.yearModel}
+                {car.condition.toUpperCase()} - {car.yearFabrication}/{car.yearModel}
               </p>
               <p>{car.mileage} km</p>
               <p className="text-red-500 font-bold">
