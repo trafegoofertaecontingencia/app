@@ -84,7 +84,7 @@ export default function CreateCarPage() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <Label>Marca</Label>
+            <Label className="mb-2">Marca</Label>
             <Select onValueChange={(val) => {
               const selected = brands.find((b) => b.nome === val);
               setValue("brand", val);
@@ -109,7 +109,7 @@ export default function CreateCarPage() {
           </div>
 
           <div>
-            <Label>Modelo</Label>
+            <Label className="mb-2">Modelo</Label>
             <Select onValueChange={(val) => {
               const selected = models.find((m) => m.nome === val);
               setValue("model", val);
@@ -134,7 +134,7 @@ export default function CreateCarPage() {
 
         {/* Ano do modelo via FIPE */}
         <div>
-          <Label>Ano do Modelo (FIPE)</Label>
+          <Label className="mb-2">Ano do Modelo (FIPE)</Label>
           <Select onValueChange={(val) => setValue("yearFipe", val)} disabled={!years.length}>
             <SelectTrigger>
               <SelectValue placeholder="Selecione o ano" />
@@ -159,10 +159,10 @@ export default function CreateCarPage() {
         <InputGroup label="Cidade" name="location.city" register={register} />
         <InputGroup label="ID do vendedor" name="seller" register={register} />
         <div>
-          <Label>Descrição</Label>
+          <Label className="mb-2">Descrição</Label>
           <Textarea {...register("description")} className="min-h-[100px]" />
         </div>
-        <Button type="submit" disabled={isSubmitting} className="w-full mt-4">
+        <Button type="submit" disabled={isSubmitting} className="w-full mt-4 border">
           {isSubmitting ? "Enviando..." : "Cadastrar carro"}
         </Button>
       </form>
