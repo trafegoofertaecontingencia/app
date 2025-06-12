@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import mongoose from 'mongoose'
-import { Car } from '@/models/Car'  // ajuste o caminho conforme seu projeto
-import dbConnect from '@/lib/mongodb' // função de conexão com o banco
+import { Car } from '@/models/Car' 
+import dbConnect from '@/lib/mongodb' 
 
 export async function GET(req: Request) {
     await dbConnect();
@@ -15,6 +15,7 @@ export async function GET(req: Request) {
 
     if (vehicle && vehicle !== 'all') {
         query['model'] = { $regex: vehicle, $options: 'i' };
+
     }
 
     if (condition && condition !== 'all') {
@@ -39,15 +40,11 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    await dbConnect();  // Certifique-se que sua função conecta ao MongoDB
+    await dbConnect(); 
 
     const body = await req.json();
 
-    const requiredFields = [
-      'brand', 'model', 'yearFabrication', 'yearModel', 
-      'mileage', 'color', 'transmission', 'fuel', 'price',
-      'location', 'seller'
-    ];
+    const requiredFields = ['hatch', 'sedan', 'suv', 'picape', 'caminhao', 'van', 'conversivel', 'esportivo', 'outro'];
 
     for (const field of requiredFields) {
       if (!body[field]) {

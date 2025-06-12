@@ -8,6 +8,11 @@ const CarSchema = new Schema({
   mileage: { type: Number, required: true },
   color: { type: String, required: true },
   transmission: { type: String, enum: ['manual', 'automatic'], required: true },
+  bodyType: {
+  type: String,
+  enum: ['hatch', 'sedan', 'suv', 'picape', 'caminhao', 'van', 'conversivel', 'esportivo', 'outro'],
+  required: true
+},
   fuel: { 
     type: String, 
     enum: ['gasoline', 'ethanol', 'flex', 'diesel', 'electric'], 
