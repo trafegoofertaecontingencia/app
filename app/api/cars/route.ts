@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import mongoose from 'mongoose'
 import { Car } from '@/models/Car' 
-import dbConnect from '@/lib/mongodb' 
+import { dbConnect } from '@/lib/mongodb' 
 
 export async function GET(req: Request) {
     await dbConnect();
@@ -39,6 +39,11 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
+
+  const { searchParams } = new URL(req.url);
+  const userId = searchParams.get("userId");
+
+
   try {
     await dbConnect(); 
 
@@ -47,7 +52,8 @@ export async function POST(req: Request) {
     const requiredFields = ['hatch', 'sedan', 'suv', 'picape', 'caminhao', 'van', 'conversivel', 'esportivo', 'outro'];
 
     for (const field of requiredFields) {
-      if (!body[field]) {
+      if (!body.bodyType[field]) {
+        console.log(field)
         return NextResponse.json(
           { error: `Campo obrigatório: ${field}` },
           { status: 400 }
@@ -55,7 +61,10 @@ export async function POST(req: Request) {
       }
     }
 
-    const newCar = await Car.create(body);
+    const newCar = await Car.create({
+      ...body,
+      userId
+    });
 
     return NextResponse.json(newCar, { status: 201 });
 

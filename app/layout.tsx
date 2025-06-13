@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { ClerkProvider } from "@clerk/nextjs";
+
+import { ptBR } from "@clerk/localizations";
+
 import "./globals.css";
 
 import Footer from "./components/Footer";
@@ -31,9 +35,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="min-h-[90vh] bg-gray-200">{children}</div>
-        <Footer />
+        <ClerkProvider localization={ptBR}>
+          <Navbar />
+          <div className="min-h-[90vh] bg-gray-200">{children}</div>
+          <Footer />
+        </ClerkProvider>
       </body>
     </html>
   );
